@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>scrollTop Sample and toggle animate</title>
+	<script  src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script> <!--jQuery--->
+</head>
+<style>
+.content{
+	height:1000px;
+	background: pink;
+	padding:10px;
+}
+
+.scrollTop{
+  display:block;
+  margin-top:800px;
+}
+.box1{
+	font-weight:bold;
+	font-size:50px;
+	width:10%;
+	background:yellow;
+}
+</style>	
+<body>
+	<div class="content">
+    	<div class="box1" id="box1">Box1</div>
+    	<a href="#box1" class="scrollTop">click以後會回Box1的位置</a> 
+	</div>
+
+<script>
+	$(document).ready(function(){
+		var show = false;
+  		$('.scrollTop').click(function(e){
+  			e.preventDefault()
+    		var target = $(this).attr("href")
+    		var targetPos = $(target).offset().top;
+    		$('html,body').animate({scrollTop:targetPos},1000);
+  		})
+	})
+
+</script>
+</body>
+</html>
